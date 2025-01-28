@@ -7,122 +7,101 @@ let reset = document.getElementById("reset");
 let qAmnt = document.getElementById("numQuestions");
 let qs = document.getElementById("quizselect");
 
-let customQ1 = document.getElementById("cquestion1");
-let cq1 = document.getElementById("c1question");
-let cq1a1 = document.getElementById("1a1");
-let cq1a1t = document.getElementById("1s1Answer");
-let cq1a2 = document.getElementById("1a2");
-let cq1a2t = document.getElementById("1s2Answer");
-let cq1a3 = document.getElementById("1a3");
-let cq1a3t = document.getElementById("1s3Answer");
-let cq1a4 = document.getElementById("1a4");
-let cq1a4t = document.getElementById("1s4Answer");
+var ca1cbs = []
+var ca2cbs = []
+var ca3cbs = []
+var ca4cbs = []
+var cqs = []
+var ca1s = []
+var ca2s = []
+var ca3s = []
+var ca4s = []
 
-let customQ2 = document.getElementById("cquestion2");
-let cq2 = document.getElementById("c2question");
-let cq2a1 = document.getElementById("2a1");
-let cq2a1t = document.getElementById("2s1Answer");
-let cq2a2 = document.getElementById("2a2");
-let cq2a2t = document.getElementById("2s2Answer");
-let cq2a3 = document.getElementById("2a3");
-let cq2a3t = document.getElementById("2s3Answer");
-let cq2a4 = document.getElementById("2a4");
-let cq2a4t = document.getElementById("2s4Answer");
+cas = [a1,a1,a1,a1,a1,a1,a1,a1,a1,a1]
 
-let customQ3 = document.getElementById("cquestion3");
-let cq3 = document.getElementById("c3question");
-let customQ4 = document.getElementById("cquestion4");
-let cq4 = document.getElementById("c4question");
-let customQ5 = document.getElementById("cquestion5");
-let cq5 = document.getElementById("c5question");
-let customQ6 = document.getElementById("cquestion6");
-let cq6 = document.getElementById("c6question");
-let customQ7 = document.getElementById("cquestion7");
-let cq7 = document.getElementById("c7question");
-let customQ8 = document.getElementById("cquestion8");
-let cq8 = document.getElementById("c8question");
-let customQ9 = document.getElementById("cquestion9");
-let cq9 = document.getElementById("c9question");
-let customQ10 = document.getElementById("cquestion10");
-let cq10 = document.getElementById("c10question");
+var cquestions = document.querySelectorAll(".cquestion");
+for(var i=0;i<cquestions.length;i++){
+    ca1cbs.push(cquestions[i].children[3]);
+    ca2cbs.push(cquestions[i].children[5]);
+    ca3cbs.push(cquestions[i].children[8]);
+    ca4cbs.push(cquestions[i].children[10]);
+    cqs.push(cquestions[i].children[0])
+    ca1s.push(cquestions[i].children[4]);
+    ca2s.push(cquestions[i].children[6]);
+    ca3s.push(cquestions[i].children[9]);
+    ca4s.push(cquestions[i].children[11]);
+    let pos = i;
+    if(localStorage.getItem("a1cb"+pos) == "true"){
+        ca1cbs[pos].checked = true
+        cas[pos] = a1
+    }
+    if(localStorage.getItem("a2cb"+pos) == "true"){
+        ca2cbs[pos].checked = true
+        cas[pos] = a2
+    }
+    if(localStorage.getItem("a3cb"+pos) == "true"){
+        ca3cbs[pos].checked = true
+        cas[pos] = a3
+    }
+    if(localStorage.getItem("a4cb"+pos) == "true"){
+        ca4cbs[pos].checked = true
+        cas[pos] = a4
+    }
+    cqs[pos].value = localStorage.getItem("question"+pos,cqs[pos].value)
+    ca1s[pos].value = localStorage.getItem("a1"+pos,ca1s[pos].value)
+    ca2s[pos].value = localStorage.getItem("a2"+pos,ca2s[pos].value)
+    ca3s[pos].value = localStorage.getItem("a3"+pos,ca3s[pos].value)
+    ca4s[pos].value = localStorage.getItem("a4"+pos,ca4s[pos].value)
+    ca1cbs[pos].addEventListener("click", () => {
+        cas[pos] = a1
+        ca2cbs[pos].checked = false;
+        ca3cbs[pos].checked = false;
+        ca4cbs[pos].checked = false;
+        localStorage.setItem("a1cb"+pos,ca1cbs[pos].checked)
+        localStorage.setItem("a2cb"+pos,ca2cbs[pos].checked)
+        localStorage.setItem("a3cb"+pos,ca3cbs[pos].checked)
+        localStorage.setItem("a4cb"+pos,ca4cbs[pos].checked)
+    })
+    ca2cbs[pos].addEventListener("click", () => {
+        cas[pos] = a2
+        ca1cbs[pos].checked = false;
+        ca3cbs[pos].checked = false;
+        ca4cbs[pos].checked = false;
+        localStorage.setItem("a1cb"+pos,ca1cbs[pos].checked)
+        localStorage.setItem("a2cb"+pos,ca2cbs[pos].checked)
+        localStorage.setItem("a3cb"+pos,ca3cbs[pos].checked)
+        localStorage.setItem("a4cb"+pos,ca4cbs[pos].checked)
+    })
+    ca3cbs[pos].addEventListener("click", () => {
+        cas[pos] = a3
+        ca2cbs[pos].checked = false;
+        ca1cbs[pos].checked = false;
+        ca4cbs[pos].checked = false;
+        localStorage.setItem("a1cb"+pos,ca1cbs[pos].checked)
+        localStorage.setItem("a2cb"+pos,ca2cbs[pos].checked)
+        localStorage.setItem("a3cb"+pos,ca3cbs[pos].checked)
+        localStorage.setItem("a4cb"+pos,ca4cbs[pos].checked)
+    })
+    ca4cbs[pos].addEventListener("click", () => {
+        cas[pos] = a4
+        ca2cbs[pos].checked = false;
+        ca3cbs[pos].checked = false;
+        ca1cbs[pos].checked = false;
+        localStorage.setItem("a1cb"+pos,ca1cbs[pos].checked)
+        localStorage.setItem("a2cb"+pos,ca2cbs[pos].checked)
+        localStorage.setItem("a3cb"+pos,ca3cbs[pos].checked)
+        localStorage.setItem("a4cb"+pos,ca4cbs[pos].checked)
+    })
+    cqs[pos].onchange = () =>{localStorage.setItem("question"+pos,cqs[pos].value);quizzes[4][pos][0] = cqs[pos].value}
+    ca1s[pos].onchange = () =>{localStorage.setItem("a1"+pos,ca1s[pos].value);quizzes[4][pos][1] = ca1s[pos].value}
+    ca2s[pos].onchange = () =>{localStorage.setItem("a2"+pos,ca2s[pos].value);quizzes[4][pos][2] = ca2s[pos].value}
+    ca3s[pos].onchange = () =>{localStorage.setItem("a3"+pos,ca3s[pos].value);quizzes[4][pos][3] = ca3s[pos].value}
+    ca4s[pos].onchange = () =>{localStorage.setItem("a4"+pos,ca4s[pos].value);quizzes[4][pos][4] = ca4s[pos].value}
+}
 
 reset.style.visibility = 'hidden';
-// custom question setup
 
-cq1.onchange = function(){
-    if (cq1.value == null){
-        cq1.value = "";
-    }
-    localStorage.setItem("cq1", cq1.value);
-}
-cq1.value = localStorage.getItem("cq1");
-cq2.onchange = function(){
-    if (cq2.value == null){
-        cq2.value = "";
-    }
-    localStorage.setItem("cq2", cq2.value);
-}
-cq2.value = localStorage.getItem("cq2");
-cq3.onchange = function(){
-    if (cq3.value == null){
-        cq3.value = "";
-    }
-    localStorage.setItem("cq3", cq3.value);
-}
-cq3.value = localStorage.getItem("cq3");
-cq4.onchange = function(){
-    if (cq4.value == null){
-        cq4.value = "";
-    }
-    localStorage.setItem("cq4", cq4.value);
-}
-cq4.value = localStorage.getItem("cq4");
-cq5.onchange = function(){
-    if (cq1.value == null){
-        cq1.value = "";
-    }
-    localStorage.setItem("cq5", cq5.value);
-}
-cq5.value = localStorage.getItem("cq5");
-cq6.onchange = function(){
-    if (cq6.value == null){
-        cq6.value = "";
-    }
-    localStorage.setItem("cq6", cq6.value);
-}
-cq6.value = localStorage.getItem("cq6");
-cq7.onchange = function(){
-    if (cq7.value == null){
-        cq7.value = "";
-    }
-    localStorage.setItem("cq7", cq7.value);
-}
-cq7.value = localStorage.getItem("cq7");
-cq8.onchange = function(){
-    if (cq8.value == null){
-        cq8.value = "";
-    }
-    localStorage.setItem("cq8", cq8.value);
-}
-cq8.value = localStorage.getItem("cq8");
-cq9.onchange = function(){
-    if (cq9.value == null){
-        cq9.value = "";
-    }
-    localStorage.setItem("cq9", cq9.value);
-}
-cq9.value = localStorage.getItem("cq9");
-cq10.onchange = function(){
-    if (cq10.value == null){
-        cq10.value = "";
-    }
-    localStorage.setItem("cq10", cq10.value);
-}
-cq10.value = localStorage.getItem("cq10");
-
-// end custom question setup
-
-const answers = [[a3,a4,a3,a1,a1,a2,a4,a2,a3,a1],[a2,a4,a1,a3,a2,a1,a1,a3,a4,a2],[a1,a2,a1,a3,a4,a2,a3,a2,a4,a1],[a3,a2,a1,a3,a4,a1,a1,a3,a2,a2]];
+const answers = [[a3,a4,a3,a1,a1,a2,a4,a2,a3,a1],[a2,a4,a1,a3,a2,a1,a1,a3,a4,a2],[a1,a2,a1,a3,a4,a2,a3,a2,a4,a1],[a3,a2,a1,a3,a4,a1,a1,a3,a2,a2],cas];
 const quizzes = [[
     ["Who wrote Frankenstein; or the Modern Prometheus and The Last Man?","Jules Verne","Mary Wolltonecraft","Mary Shelley","H.G. Wells"],
     ["Who wrote The Time Machine, The War of the Worlds, and The Island of Dr. Moreau?","Jules Verne","Isaac Asimov","Douglas Adams","H.G. Wells"],
@@ -166,7 +145,18 @@ const quizzes = [[
     ["What social media platform was launched in 2004?","Facebook","Twitter (X)","Instagram","LinkedIn"],
     ["Which movie introduced the characters of Shrek and Donkey?","Shrek 2","Shrek Forever After","Shrek","Shrek the Third"],
     ["What reality TV show followed the lives of a wealthy family in Orange County?","Laguna Beach","The O.C.","Real Housewives of Orange County","The Hills"],
-    ["What was Britney Spears' hit song released in 2000?","Oops!... I Did It Again","Baby One More Time","Toxic","I'm a Slave 4 U"],
+    ["What was Britney Spears' hit song released in 2000?","Oops!... I Did It Again","Baby One More Time","Toxic","I'm a Slave 4 U"]
+],[
+    [cqs[0].value,ca1s[0].value,ca2s[0].value,ca3s[0].value,ca4s[0].value],
+    [cqs[1].value,ca1s[1].value,ca2s[1].value,ca3s[1].value,ca4s[1].value],
+    [cqs[2].value,ca1s[2].value,ca2s[2].value,ca3s[2].value,ca4s[2].value],
+    [cqs[3].value,ca1s[3].value,ca2s[3].value,ca3s[3].value,ca4s[3].value],
+    [cqs[4].value,ca1s[4].value,ca2s[4].value,ca3s[4].value,ca4s[4].value],
+    [cqs[5].value,ca1s[5].value,ca2s[5].value,ca3s[5].value,ca4s[5].value],
+    [cqs[6].value,ca1s[6].value,ca2s[6].value,ca3s[6].value,ca4s[6].value],
+    [cqs[7].value,ca1s[7].value,ca2s[7].value,ca3s[7].value,ca4s[7].value],
+    [cqs[8].value,ca1s[8].value,ca2s[8].value,ca3s[8].value,ca4s[8].value],
+    [cqs[9].value,ca1s[9].value,ca2s[9].value,ca3s[9].value,ca4s[9].value]
 ]];
 
 if (localStorage.getItem("qs") == null){
