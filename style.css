@@ -70,11 +70,14 @@ question h3{
     border-radius: 5px;
 }
 question table{
-    width: 25vw;
+    width: 75%;
     height: 15vh;
     border-spacing: 1rem;
 }
-question table button{
+question table td{
+    width: 50%;
+}
+question table td button{
     width: 100%;
     height: 100%;
     border-color: #202020;
@@ -122,6 +125,22 @@ parallax{
     height: 100%;
     padding-bottom: 5%;
 }
-.answer{
-    width: 10%;
+.cquestion{
+    width: 50%;
+    padding: 0;
+}
+.checkbox{
+    width:10%
+}
+.s1Answer{
+    width: 30%;
+}
+.s2Answer{
+    width: 30%;
+}
+.s3Answer{
+    width: 30%;
+}
+.s4Answer{
+    width: 30%;
 }

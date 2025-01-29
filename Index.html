@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html>
+    <head>
+        <title>Epic Quiz</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="logo.png">
+        <script src="quiz.js" defer></script>
+    </head>
+    <body>
+        <div id="head">
+            <p>QUIZ TIME!</p>
+            <select id="quizselect">
+                <option value="0">Literature</option>
+                <option value="1">Ancient Civilizations</option>
+                <option value="2">Space Exploration</option>
+                <option value="3">2000s Pop Culture</option>
+                <option value="4">Custom Quiz</option>
+            </select>
+            <select id="numQuestions">
+                <option value="4">4 Questions</option>
+                <option value="6">6 Questions</option>
+                <option value="8">8 Questions</option>
+                <option value="10" selected>10 Questions</option>
+            </select>
+        </div>
+        <question>
+            <h3 id="question">Question Failed to Load.</h3><button id="reset" onclick="location.reload()">Reset</button>
+            <table border="0">
+                <tr>
+                    <td><button id="ans1">a1</button></td>
+                    <td><button id="ans2">a2</button></td>
+                </tr>
+                <tr>
+                    <td><button id="ans3">a3</button></td>
+                    <td><button id="ans4">a4</button></td>
+                </tr>
+            </table>
+        </question>
+        <parallax class="bg2">
+        </parallax>
+        <parallax class="body1">
+            <h2>Custom Quiz</h2>
+            <table class="cq">
+                <tr>
+                    <td class="cquestion">
+                        <input class="cqs"><br><br>
+                        <input type="checkbox" class="a1"><input class="s1Answer"><input type="checkbox" class="a2"><input class="s2Answer"><br>
+                        <input type="checkbox" class="a3"><input class="s3Answer"><input type="checkbox" class="a4"><input class="s4Answer">
+                    </td>
+                    <td class="cquestion">
+                        <input class="cqs"><br><br>
+                        <input type="checkbox" class="a1"><input class="s1Answer"><input type="checkbox" class="a2"><input class="s2Answer"><br>
+                        <input type="checkbox" class="a3"><input class="s3Answer"><input type="checkbox" class="a4"><input class="s4Answer">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cquestion">
+                        <input class="cqs"><br><br>
+                        <input type="checkbox" class="a1"><input class="s1Answer"><input type="checkbox" class="a2"><input class="s2Answer"><br>
+                        <input type="checkbox" class="a3"><input class="s3Answer"><input type="checkbox" class="a4"><input class="s4Answer">
+                    </td>
+                    <td class="cquestion">
+                        <input class="cqs"><br><br>
+                        <input type="checkbox" class="a1"><input class="s1Answer"><input type="checkbox" class="a2"><input class="s2Answer"><br>
+                        <input type="checkbox" class="a3"><input class="s3Answer"><input type="checkbox" class="a4"><input class="s4Answer">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cquestion">
+                        <input class="cqs"><br><br>
+                        <input type="checkbox" class="a1"><input class="s1Answer"><input type="checkbox" class="a2"><input class="s2Answer"><br>
+                        <input type="checkbox" class="a3"><input class="s3Answer"><input type="checkbox" class="a4"><input class="s4Answer">
+                    </td>
+                    <td class="cquestion">
+                        <input class="cqs"><br><br>
+                        <input type="checkbox" class="a1"><input class="s1Answer"><input type="checkbox" class="a2"><input class="s2Answer"><br>
+                        <input type="checkbox" class="a3"><input class="s3Answer"><input type="checkbox" class="a4"><input class="s4Answer">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cquestion">
+                        <input class="cqs"><br><br>
+                        <input type="checkbox" class="a1"><input class="s1Answer"><input type="checkbox" class="a2"><input class="s2Answer"><br>
+                        <input type="checkbox" class="a3"><input class="s3Answer"><input type="checkbox" class="a4"><input class="s4Answer">
+                    </td>
+                    <td class="cquestion">
+                        <input class="cqs"><br><br>
+                        <input type="checkbox" class="a1"><input class="s1Answer"><input type="checkbox" class="a2"><input class="s2Answer"><br>
+                        <input type="checkbox" class="a3"><input class="s3Answer"><input type="checkbox" class="a4"><input class="s4Answer">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cquestion">
+                        <input class="cqs"><br><br>
+                        <input type="checkbox" class="a1"><input class="s1Answer"><input type="checkbox" class="a2"><input class="s2Answer"><br>
+                        <input type="checkbox" class="a3"><input class="s3Answer"><input type="checkbox" class="a4"><input class="s4Answer">
+                    </td>
+                    <td class="cquestion">
+                        <input class="cqs"><br><br>
+                        <input type="checkbox" class="a1"><input class="s1Answer"><input type="checkbox" class="a2"><input class="s2Answer"><br>
+                        <input type="checkbox" class="a3"><input class="s3Answer"><input type="checkbox" class="a4"><input class="s4Answer">
+                    </td>
+                </tr>
+            </table>
+        </parallax>
+        <parallax class="body2">
+            <p id="copy">&copyAyden Otte 2025</p>
+        </parallax>
+    </body>
+</html>
