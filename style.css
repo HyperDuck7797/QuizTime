@@ -68,6 +68,7 @@ question h3{
     color: #bbbbbb;
     border: 10px solid #363636;;
     border-radius: 5px;
+    font-size: 175%;
 }
 question table{
     width: 75%;
@@ -83,6 +84,7 @@ question table td button{
     border-color: #202020;
     background-color: #363636;
     color: #bbbbbb;
+    font-size: 150%;
 }
 parallax{
     height: 1200px;
